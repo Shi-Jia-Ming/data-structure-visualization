@@ -15,7 +15,6 @@
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
-#include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QWidget>
 
@@ -27,12 +26,10 @@ public:
     QWidget *centralWidget;
     QHBoxLayout *horizontalLayout;
     QWidget *drawer;
-    QPushButton *pushButton_2;
     QMenuBar *menubar;
     QStatusBar *statusbar;
     QDockWidget *dockWidget;
     QWidget *dockWidgetContents;
-    QPushButton *pushButton;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -45,9 +42,8 @@ public:
         horizontalLayout->setObjectName("horizontalLayout");
         drawer = new QWidget(centralWidget);
         drawer->setObjectName("drawer");
-        pushButton_2 = new QPushButton(drawer);
-        pushButton_2->setObjectName("pushButton_2");
-        pushButton_2->setGeometry(QRect(280, 270, 75, 23));
+        drawer->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);\n"
+""));
 
         horizontalLayout->addWidget(drawer);
 
@@ -61,11 +57,10 @@ public:
         MainWindow->setStatusBar(statusbar);
         dockWidget = new QDockWidget(MainWindow);
         dockWidget->setObjectName("dockWidget");
+        dockWidget->setCursor(QCursor(Qt::ArrowCursor));
+        dockWidget->setStyleSheet(QString::fromUtf8(""));
         dockWidgetContents = new QWidget();
         dockWidgetContents->setObjectName("dockWidgetContents");
-        pushButton = new QPushButton(dockWidgetContents);
-        pushButton->setObjectName("pushButton");
-        pushButton->setGeometry(QRect(0, 240, 75, 23));
         dockWidget->setWidget(dockWidgetContents);
         MainWindow->addDockWidget(Qt::LeftDockWidgetArea, dockWidget);
 
@@ -74,11 +69,9 @@ public:
         QMetaObject::connectSlotsByName(MainWindow);
     } // setupUi
 
-    void retranslateUi(QMainWindow *MainWindow) const
+    void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
-        pushButton_2->setText(QCoreApplication::translate("MainWindow", "PushButton", nullptr));
-        pushButton->setText(QCoreApplication::translate("MainWindow", "PushButton", nullptr));
     } // retranslateUi
 
 };

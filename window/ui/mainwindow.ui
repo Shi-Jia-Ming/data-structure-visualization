@@ -17,19 +17,10 @@
    <layout class="QHBoxLayout" name="horizontalLayout">
     <item>
      <widget class="QWidget" name="drawer" native="true">
-      <widget class="QPushButton" name="pushButton_2">
-       <property name="geometry">
-        <rect>
-         <x>280</x>
-         <y>270</y>
-         <width>75</width>
-         <height>23</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>PushButton</string>
-       </property>
-      </widget>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);
+</string>
+      </property>
      </widget>
     </item>
    </layout>
@@ -46,24 +37,16 @@
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <widget class="QDockWidget" name="dockWidget">
+   <property name="cursor">
+    <cursorShape>ArrowCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
    <attribute name="dockWidgetArea">
     <number>1</number>
    </attribute>
-   <widget class="QWidget" name="dockWidgetContents">
-    <widget class="QPushButton" name="pushButton">
-     <property name="geometry">
-      <rect>
-       <x>0</x>
-       <y>240</y>
-       <width>75</width>
-       <height>23</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>PushButton</string>
-     </property>
-    </widget>
-   </widget>
+   <widget class="QWidget" name="dockWidgetContents"/>
   </widget>
  </widget>
  <resources/>
