@@ -13,8 +13,22 @@ find_package(Qt6 COMPONENTS
         Gui
         Widgets
         REQUIRED)
-#
-add_executable(data_structure_visualization main.cpp)
+
+# 设置头文件路径
+include_directories(window/headers)
+
+# 设置需要编译的文件
+file(GLOB UI_HEADERS window/ui/*.h)
+file(GLOB UI_SOURCES window/ui/*.ui)
+file(GLOB WINDOW_HEADERS window/headers/*.h)
+file(GLOB WINDOW_SOURCES window/sources/*.cpp)
+
+add_executable(data_structure_visualization main.cpp
+        ${UI_HEADERS}
+        ${UI_HEADERS}
+        ${WINDOW_SOURCES}
+        ${WINDOW_HEADERS}
+)
 target_link_libraries(data_structure_visualization
         Qt::Core
         Qt::Gui
