@@ -17,6 +17,7 @@
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QWidget>
+#include "drawer.h"
 
 QT_BEGIN_NAMESPACE
 
@@ -25,7 +26,7 @@ class Ui_MainWindow
 public:
     QWidget *centralWidget;
     QHBoxLayout *horizontalLayout;
-    QWidget *drawer;
+    Drawer *drawer;
     QMenuBar *menubar;
     QStatusBar *statusbar;
     QDockWidget *dockWidget;
@@ -40,7 +41,7 @@ public:
         centralWidget->setObjectName("centralWidget");
         horizontalLayout = new QHBoxLayout(centralWidget);
         horizontalLayout->setObjectName("horizontalLayout");
-        drawer = new QWidget(centralWidget);
+        drawer = new Drawer(centralWidget);
         drawer->setObjectName("drawer");
         drawer->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);\n"
 ""));

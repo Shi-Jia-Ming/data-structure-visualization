@@ -4,6 +4,8 @@
 
 // You may need to build the project (run Qt uic code generator) to get "ui_MainWindow.h" resolved
 
+#include <QPainter>
+#include <QPoint>
 #include "../headers/mainwindow.h"
 #include "../ui/ui_mainwindow.h"
 

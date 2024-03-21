@@ -16,7 +16,7 @@
   <widget class="QWidget" name="centralWidget">
    <layout class="QHBoxLayout" name="horizontalLayout">
     <item>
-     <widget class="QWidget" name="drawer" native="true">
+     <widget class="Drawer" name="drawer" native="true">
       <property name="styleSheet">
        <string notr="true">background-color: rgb(255, 255, 255);
 </string>
@@ -49,6 +49,14 @@
    <widget class="QWidget" name="dockWidgetContents"/>
   </widget>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>Drawer</class>
+   <extends>QWidget</extends>
+   <header>drawer.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>
