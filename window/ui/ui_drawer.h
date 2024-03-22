@@ -19,7 +19,7 @@ class Ui_Drawer
 {
 public:
 
-    void setupUi(QWidget *Drawer)
+    static void setupUi(QWidget *Drawer)
     {
         if (Drawer->objectName().isEmpty())
             Drawer->setObjectName("Drawer");
@@ -31,7 +31,7 @@ public:
         QMetaObject::connectSlotsByName(Drawer);
     } // setupUi
 
-    void retranslateUi(QWidget *Drawer)
+    static void retranslateUi(QWidget *Drawer)
     {
         Drawer->setWindowTitle(QCoreApplication::translate("Drawer", "Drawer", nullptr));
     } // retranslateUi

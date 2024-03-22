@@ -27,6 +27,8 @@ public:
     void setValue(T value, ChainNode<T> *next);
     // 计算缩放后的坐标变换
     void handleZoom(float zoom, QPointF mousePos);
+    // 计算平移后的坐标变换
+    void handleTranslate(double deltaX, double deltaY);
 
 private:
     // 矩形的座上顶点坐标
@@ -39,6 +41,12 @@ private:
     // 链表节点的值
     ChainNode<T> value;
 };
+
+template<typename T>
+void ChainNodeShape<T>::handleTranslate(double deltaX, double deltaY) {
+    this->startPos.setX(this->startPos.x() + deltaX);
+    this->startPos.setY(this->startPos.y() + deltaY);
+}
 
 template<typename T>
 void ChainNodeShape<T>::handleZoom(float zoom, QPointF mousePos) {

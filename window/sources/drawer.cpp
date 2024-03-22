@@ -14,12 +14,14 @@
 
 Drawer::Drawer(QWidget *parent) :
         QWidget(parent), ui(new Ui::Drawer) {
-    ui->setupUi(this);
+    Ui::Drawer::setupUi(this);
 
     // 设置鼠标跟踪
     setMouseTracking(true);
     // 初始化绘制的起始点
     this->startPos = QPoint(0, 0);
+    // 初始化拖拽事件的起点坐标
+    this->dragStartPos = QPointF(-1, -1);
 }
 
 Drawer::~Drawer() {
@@ -37,12 +39,32 @@ void Drawer::wheelEvent(QWheelEvent *event) {
     if (event->angleDelta().y() > 0) {
         zoom = 1.1;      // 放大
     } else {
-        zoom = 0.9;        // 缩小
+        zoom = 0.9;      // 缩小
     }
     this->nodeShape.handleZoom(zoom, event->position());
-    qDebug() << "StartPosition: " << startPos;
-    qDebug() << "Zoom: " << zoom;
-
     // 更新绘图
     update();
+}
+
+void Drawer::mousePressEvent(QMouseEvent *event) {
+    if (event->button() == Qt::LeftButton) {
+        this->isDragging = true;
+        this->dragStartPos = event->position();
+    }
+}
+
+void Drawer::mouseReleaseEvent(QMouseEvent *event) {
+    if (event->button() == Qt::LeftButton) {
+        this->isDragging = false;
+    }
+}
+
+void Drawer::mouseMoveEvent(QMouseEvent *event) {
+    if (this->isDragging && this->dragStartPos.x() != -1 && this->dragStartPos.y() != -1) {
+        double deltaX = event->position().x() - this->dragStartPos.x();
+        double deltaY = event->position().y() - this->dragStartPos.y();
+        this->nodeShape.handleTranslate(deltaX, deltaY);
+        update();
+    }
+    this->dragStartPos = event->position();
 }
