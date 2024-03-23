@@ -31,7 +31,7 @@ Drawer::~Drawer() {
 
 void Drawer::paintEvent(QPaintEvent *event) {
     auto *painter = new QPainter(this);
-    this->nodeShape.paint(painter);
+    this->nodeShapeInt.paint(painter);
     delete painter;
 }
 
@@ -41,7 +41,7 @@ void Drawer::wheelEvent(QWheelEvent *event) {
     } else {
         zoom = 0.9;      // 缩小
     }
-    this->nodeShape.handleZoom(zoom, event->position());
+    this->nodeShapeInt.handleZoom(zoom, event->position());
     // 更新绘图
     update();
 }
@@ -63,7 +63,7 @@ void Drawer::mouseMoveEvent(QMouseEvent *event) {
     if (this->isDragging && this->dragStartPos.x() != -1 && this->dragStartPos.y() != -1) {
         double deltaX = event->position().x() - this->dragStartPos.x();
         double deltaY = event->position().y() - this->dragStartPos.y();
-        this->nodeShape.handleTranslate(deltaX, deltaY);
+        this->nodeShapeInt.handleTranslate(deltaX, deltaY);
         update();
     }
     this->dragStartPos = event->position();

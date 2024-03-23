@@ -18,6 +18,7 @@ find_package(Qt6 COMPONENTS
 include_directories(window/headers)
 include_directories(draw/headers)
 include_directories(structure/headers)
+include_directories(utils/headers)
 
 # 设置需要编译的文件
 file(GLOB UI_HEADERS window/ui/*.h)
@@ -28,6 +29,8 @@ file(GLOB DRAW_HEADERS draw/headers/*.h)
 file(GLOB DRAW_SOURCES draw/sources/*.cpp)
 file(GLOB STRUCTURE_HEADERS structure/headers/*.h)
 file(GLOB STRUCTURE_SOURCES structure/sources/*.cpp)
+file(GLOB UTILS_HEADERS utils/headers/*.h)
+file(GLOB UTILS_SOURCES utils/sources/*.cpp)
 
 add_executable(data_structure_visualization main.cpp
         ${UI_HEADERS}
@@ -38,6 +41,8 @@ add_executable(data_structure_visualization main.cpp
         ${DRAW_SOURCES}
         ${STRUCTURE_HEADERS}
         ${STRUCTURE_SOURCES}
+        ${UTILS_HEADERS}
+        ${UTILS_SOURCES}
 )
 target_link_libraries(data_structure_visualization
         Qt::Core

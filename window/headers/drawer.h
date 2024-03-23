@@ -6,6 +6,7 @@
 #define DATA_STRUCTURE_VISUALIZATION_DRAWER_H
 
 #include <QWidget>
+#include <string>
 #include "ChainNodeShape.h"
 
 
@@ -52,9 +53,11 @@ private:
     QPoint startPos;
 
     // 定义链表节点
-    ChainNode<int> node = ChainNode<int>(1, nullptr);
+//    ChainNode<QString> node = ChainNode<QString>("1", nullptr);
     // 定义链表视图
-    ChainNodeShape<int> nodeShape = ChainNodeShape<int>(node, startPos + QPoint(100, 100), 100, 100);
+//    ChainNodeShape<QString> nodeShape = ChainNodeShape<QString>(node, startPos + QPoint(100, 100));
+    ChainNode<int> nodeInt = ChainNode<int>(1, nullptr);
+    ChainNodeShape<int> nodeShapeInt = ChainNodeShape<int>(nodeInt, startPos + QPoint(300, 300));
 };
 
 #endif //DATA_STRUCTURE_VISUALIZATION_DRAWER_H

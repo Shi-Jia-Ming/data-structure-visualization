@@ -6,5 +6,5 @@
 
 
 //template<typename T>
-//ChainNode<T>::ChainNode(T value, ChainNode<T> *next)
-//        :value(value), next(next) {}
+//ChainNode<T>::ChainNode(T node, ChainNode<T> *next)
+//        :node(node), next(next) {}

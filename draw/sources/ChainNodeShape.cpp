@@ -12,8 +12,8 @@
 
 
 //template<typename T>
-//ChainNodeShape<T>::ChainNodeShape(ChainNode<T> value, QPoint startPos, double length, double width)
-//        :value(value), startPos(startPos), length(length), width(width) {}
+//ChainNodeShape<T>::ChainNodeShape(ChainNode<T> node, QPoint startPos, double length, double width)
+//        :node(node), startPos(startPos), length(length), width(width) {}
 
 
 //template<typename T>
@@ -22,5 +22,5 @@
 
 //template<typename T>
 //void ChainNodeShape<T>::setValue(T nodeValue, ChainNode<T> *next) {
-//    this->value = ChainNode<T>(nodeValue, next);
+//    this->node = ChainNode<T>(nodeValue, next);
 //}

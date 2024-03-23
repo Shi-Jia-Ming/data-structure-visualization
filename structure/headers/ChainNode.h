@@ -11,9 +11,11 @@ public:
     explicit ChainNode(T value, ChainNode<T> *next)
             :value(value), next(next) {}
 
-private:
     T value;
     ChainNode<T> *next;
+
+private:
+
 };
 
 #endif //DATA_STRUCTURE_VISUALIZATION_CHAINNODE_H
