@@ -21,15 +21,18 @@ class ChainNode;
 template<typename T>
 class ChainNodeShape {
 public:
-    explicit ChainNodeShape(ChainNode<T> value, QPoint startPos);
+    explicit ChainNodeShape(ChainNode<T> value, QPointF startPos);
 
-    explicit ChainNodeShape(QPoint startPos);
+    explicit ChainNodeShape(QPointF startPos);
+
+    // 入箭头位置
+    QPointF inPos;
+    // 出箭头位置
+    QPointF outPos;
 
     // 绘制函数
     void paint(QPainter *painter);
 
-    // 设置节点的值
-//    void setValue(T value, ChainNode<T> * &next);
     // 计算缩放后的坐标变换
     void handleZoom(float zoom, QPointF mousePos);
 
@@ -60,7 +63,7 @@ private:
 
     // 计算矩形中心点的坐标
     void calcCentralPos();
-
+    // 设置节点的值
     void setValue(const T &nodeValue, ChainNode<T> *&next);
 };
 
@@ -72,7 +75,7 @@ private:
  * @param startPos 该节点绘制的顶点
  */
 template<typename T>
-ChainNodeShape<T>::ChainNodeShape(ChainNode<T> value, QPoint startPos)
+ChainNodeShape<T>::ChainNodeShape(ChainNode<T> value, QPointF startPos)
         : node(value), startPos(startPos), length(100), width(50) {
 
     // 设置节点的值
@@ -90,7 +93,7 @@ ChainNodeShape<T>::ChainNodeShape(ChainNode<T> value, QPoint startPos)
  * @param startPos 该节点绘制的顶点
  */
 template<typename T>
-ChainNodeShape<T>::ChainNodeShape(QPoint startPos)
+ChainNodeShape<T>::ChainNodeShape(QPointF startPos)
         : startPos(startPos), length(50), width(25) {
     // 计算中心点
     this->calcCentralPos();
@@ -123,6 +126,9 @@ void ChainNodeShape<T>::calcCentralPos() {
                        QPointF(this->length / 2, this->width / 2) -
                        QPointF(this->fontMetrics.horizontalAdvance(this->strValue) / 2,
                                -this->fontMetrics.height() / 2);
+
+    this->inPos = this->startPos + QPointF(0, this->width / 2);
+    this->outPos = this->startPos + QPointF(this->length, this->width / 2);
 }
 
 /**

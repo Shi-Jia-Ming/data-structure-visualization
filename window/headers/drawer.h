@@ -8,6 +8,7 @@
 #include <QWidget>
 #include <string>
 #include "ChainNodeShape.h"
+#include "ChainShape.h"
 
 
 QT_BEGIN_NAMESPACE
@@ -52,12 +53,8 @@ private:
     // 绘制起始点
     QPoint startPos;
 
-    // 定义链表节点
-//    ChainNode<QString> node = ChainNode<QString>("1", nullptr);
-    // 定义链表视图
-//    ChainNodeShape<QString> nodeShape = ChainNodeShape<QString>(node, startPos + QPoint(100, 100));
-    ChainNode<int> nodeInt = ChainNode<int>(1, nullptr);
-    ChainNodeShape<int> nodeShapeInt = ChainNodeShape<int>(nodeInt, startPos + QPoint(300, 300));
+    // 定义链表
+    ChainShape<int> chainShape = ChainShape<int>();
 };
 
 #endif //DATA_STRUCTURE_VISUALIZATION_DRAWER_H
